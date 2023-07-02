@@ -1,11 +1,24 @@
-// Pop Up
+// Back to Top Button
 
-function togglePopup() {
-    document.getElementById("popup").classList.toggle("active")
+let mybutton = document.getElementById("btn-back-to-top");
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 1000 ||
+    document.documentElement.scrollTop > 1000
+  ) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
 }
+mybutton.addEventListener("click", backToTop);
 
-document.addEventListener('keydown', function(event){
-	if(event.key === "Escape"){
-document.getElementById("popup-1").classList.toggle("active");
-	}
-});
+function backToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
